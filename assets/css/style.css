@@ -11,13 +11,16 @@ header {
 
 .forecastDay {
     background-color: #007bff;
-    font-weight: bold;
+    /* font-weight: bold; */
     width: max-content;
     margin: auto;
     color: white;
     border-radius: 5px;
 }
 
+.weatherData {
+    margin: 10px 0px 10px 0px;
+}
 #citySearch {
     background-color: #f8f9fa;
 }
