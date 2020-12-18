@@ -1,3 +1,12 @@
 div {
-    font-size: xx-large; border: 5px; border-color: black; border-style: dashed; text-align: center;
+    border: 5px; border-color: black; border-style: dashed;
+}
+
+header {
+    font-size: xx-large;
+    text-align: center;
+    background-color: #343a40;
+    color: white;
+    font-size: xx-large;
+    font-weight: bold;
 }
