@@ -9,6 +9,11 @@ header {
     color: white;
 }
 
+.forecastDay {
+    background-color: #007bff;
+    margin: auto;
+}
+
 #citySearch {
     background-color: #f8f9fa;
 }
