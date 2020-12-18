@@ -10,8 +10,8 @@ header {
 }
 
 #cityList p {
-    border: 2px;
-    border-color: black;
+    border: 1px;
+    border-color: gray;
     border-style: solid;
     margin: 0;
     padding: 5px 0px 5px 5%;
