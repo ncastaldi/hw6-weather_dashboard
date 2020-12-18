@@ -9,6 +9,10 @@ header {
     color: white;
 }
 
+.forecastDate {
+    font-weight: bold;
+}
+
 .forecastDay {
     background-color: #007bff;
     /* font-weight: bold; */
@@ -18,9 +22,10 @@ header {
     border-radius: 5px;
 }
 
-.weatherData {
+.forecastDay div {
     margin: 10px 0px 10px 0px;
 }
+
 #citySearch {
     background-color: #f8f9fa;
 }
