@@ -11,7 +11,9 @@ header {
 
 .forecastDay {
     background-color: #007bff;
+    width: max-content;
     margin: auto;
+    color: white;
 }
 
 #citySearch {
