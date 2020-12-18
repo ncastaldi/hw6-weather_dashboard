@@ -1,6 +1,6 @@
 div {
-    border: 5px; border-color: black; border-style: dashed;
-}
+/*     border: 5px; border-color: black; border-style: dashed;
+ */}
 
 header {
     font-size: xx-large;
@@ -9,7 +9,12 @@ header {
     color: white;
 }
 
+#citySearch {
+    background-color: #f8f9fa;
+}
+
 #citySearch p {
+    background-color: white;
     border: 1px;
     border-color: gray;
     border-style: solid;
@@ -19,4 +24,5 @@ header {
 
 #citySearch input {
     width: 65%;
+    margin-bottom: 10px;;
 }
