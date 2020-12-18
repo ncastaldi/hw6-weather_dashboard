@@ -11,9 +11,11 @@ header {
 
 .forecastDay {
     background-color: #007bff;
+    font-weight: bold;
     width: max-content;
     margin: auto;
     color: white;
+    border-radius: 5px;
 }
 
 #citySearch {
@@ -40,6 +42,11 @@ header {
     border-color: gray;
     border-style: solid;
 }
+
+#fiveDayForecast {
+    margin-top: 5%;
+}
+
 #leftCol {
     margin-bottom: 5%;
 }
