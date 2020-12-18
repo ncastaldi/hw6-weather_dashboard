@@ -1,6 +1,6 @@
 div {
-/*     border: 5px; border-color: black; border-style: dashed;
- */}
+    border: 5px; border-color: black; border-style: dashed;
+}
 
 header {
     font-size: xx-large;
@@ -9,7 +9,7 @@ header {
     color: white;
 }
 
-#cityList p {
+#citySearch p {
     border: 1px;
     border-color: gray;
     border-style: solid;
