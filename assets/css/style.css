@@ -34,6 +34,12 @@ header {
     margin-bottom: 10px;
 }
 
+#currentWeather {
+    margin-top: 2%;
+    border: 1px;
+    border-color: gray;
+    border-style: solid;
+}
 #leftCol {
     margin-bottom: 5%;
 }
