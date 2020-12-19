@@ -16,6 +16,7 @@ $(document).ready(function () {
     queryCurrent = "https://api.openweathermap.org/data/2.5/weather?";
     queryUV = "http://api.openweathermap.org/data/2.5/uvi?";
     queryForecast = "http://api.openweathermap.org/data/2.5/forecast?";
+    iconURL = "http://openweathermap.org/img/wn/";
     myKey = "appid=3ba28d112b1ad87abd972d7f6388e493";
     var currentDate; //ToDo: Add moment.js to capture and display date
     var currentTemp;
@@ -109,6 +110,19 @@ $(document).ready(function () {
                 var fiveDayForecastH3 = $("<h3>");
                 fiveDayForecastH3.text("5-Day Forecast:");
                 fiveDayForecastEl.append(fiveDayForecastH3);
+
+                for (var i = 0; i < 5; i++) {
+                    var forecastDayEl = $("<div>");
+                    forecastDayEl.addClass("forecastDay");
+                    var forecastDateEl = $("<div>");
+                    forecastDateEl.addClass("forecastDate");
+                    forecastDateEl.text(forecastDateArray[i]);
+                    forecastDayEl.append(forecastDateEl);
+                    forecastDayEl.append(forecastDateEl);
+                    fiveDayForecastEl.append(forecastDayEl);
+
+
+                }
             })
         })
     }
