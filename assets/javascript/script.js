@@ -43,7 +43,7 @@ $(document).ready(function () {
             method: "GET"
         }).then(function (response) {
             /* Store "Current Weater Conditions" */
-            currentDate = 0;
+            currentDate = moment().format("MM/D/YYYY");
             currentIcon = iconURL + response.weather[0].icon + "@2x.png";
             currentTemp = response.main.temp;
             currentHumidity = response.main.humidity;
