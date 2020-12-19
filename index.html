@@ -17,53 +17,53 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
-<body>
-    <main class="container-fluid">
-        <header class="row">
-            <div class="col">
-                <h1>Weather Dashboard</h1>
-            </div>
-        </header>
+<body class="container-fluid">
 
-        <section class="row">
-            <div class="col-md-3 col-sm-1" id="citySearch">
-                <h5>Search for a City:</h5>
-                <input type="text">
-                <button class="btn btn-primary fas fa-search"></button>
-                <div id="storedCities">
-                    <!-- Populate with jQuery -->
-                </div>
+    <header class="row">
+        <div class="col">
+            <h1>Weather Dashboard</h1>
+        </div>
+    </header>
+
+    <main class="row">
+        <section class="col-md-3 col-sm-1" id="citySearch">
+            <h5>Search for a City:</h5>
+            <input type="text">
+            <button class="btn btn-primary fas fa-search"></button>
+            <div id="storedCities">
+                <!-- Populate with jQuery -->
             </div>
-            <div class="col-md-9 col-sm-1" id="weatherData">
-                <div class="row">
-                    <div class="col" id="currentWeather">
-                        <div class="row" id="currentCity">
-                            <!-- Populate with jQuery -->
-                        </div>
-                        <div class="row" id="currentTemp">
-                            <!-- Populate with jQuery -->
-                        </div>
-                        <div class="row" id="currentHumidity">
-                            <!-- Populate with jQuery -->
-                        </div>
-                        <div class="row" id="currentWind">
-                            <!-- Populate with jQuery -->
-                        </div>
-                        <div class="row" id="currentUV">
-                            <!-- Populate with jQuery -->
-                        </div>
+        </section>
+        <section class="col-md-9 col-sm-1" id="weatherData">
+            <div class="row">
+                <div class="col" id="currentWeather">
+                    <div class="row" id="currentCity">
+                        <!-- Populate with jQuery -->
+                    </div>
+                    <div class="row" id="currentTemp">
+                        <!-- Populate with jQuery -->
+                    </div>
+                    <div class="row" id="currentHumidity">
+                        <!-- Populate with jQuery -->
+                    </div>
+                    <div class="row" id="currentWind">
+                        <!-- Populate with jQuery -->
+                    </div>
+                    <div class="row" id="currentUV">
+                        <!-- Populate with jQuery -->
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="row" id="fiveDayForecast">
-                            <!-- Populate with jQuery -->
-                        </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="row" id="fiveDayForecast">
+                        <!-- Populate with jQuery -->
                     </div>
                 </div>
             </div>
         </section>
     </main>
+
 
     <script src="https://kit.fontawesome.com/125e323a70.js" crossorigin="anonymous"></script>
     <script src="./assets/javascript/script.js"></script>
