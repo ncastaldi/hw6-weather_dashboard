@@ -29,9 +29,7 @@ $(document).ready(function () {
     // Declare Functions
     function retrieveWeatherData(event, lastSearchCity) {
         event.preventDefault();
-
         clearPage();
-
 
         //console.log("last searched city: " + lastSearchCity);
         if (localStorage.getItem("lastSearchCity") !== undefined) {
@@ -46,7 +44,6 @@ $(document).ready(function () {
         }).then(function (response) {
             /* Store "Current Weater Conditions" */
             currentIcon = iconURL + response.weather[0].icon + "@2x.png";
-            console.log(currentIcon);
             currentTemp = response.main.temp;
             currentHumidity = response.main.humidity;
             currentWind = response.wind.speed;
@@ -55,7 +52,14 @@ $(document).ready(function () {
 
             /* Write "Current Weather Conditions" to screen */
             var currentCityH3 = $("<h3>");
-            currentCityH3.text(currentCity + " " + "{TODAYS DATE}" + "{WEATHER ICON}");
+            //currentCityH3.text(currentCity + " " + "{TODAYS DATE}" + "{WEATHER ICON}");
+            currentCityH3.text(currentCity + "     ");
+            var currDate = $("<p>");
+            currDate = "(" + "8/15/2020" + ")     ";
+            currentCityH3.append(currDate);
+            var currIcon = $("<img>");
+            currIcon.attr("src", currentIcon);
+            currentCityH3.append(currIcon);
             currentCityEl.append(currentCityH3);
             var currentTempP = $("<p>");
             currentTempP.text("Temperature: " + currentTemp + "°F");
