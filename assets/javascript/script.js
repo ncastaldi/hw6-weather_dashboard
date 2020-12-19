@@ -12,8 +12,8 @@ $(document).ready(function () {
     var fiveDayForecastEl = $("fiveDayForecast");
 
     // Delcare JavaScript Variables
-    myKey = ""; //ToDo: include openweather api key
-    queryURL = ""; //ToDo: include basic query url
+    myKey = "3ba28d112b1ad87abd972d7f6388e493";
+    queryURL = "https://api.openweathermap.org/data/2.5/weather?";
 
     // Declare Functions
     function retrieveWeatherData(event) {
