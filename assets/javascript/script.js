@@ -118,12 +118,12 @@ $(document).ready(function () {
 
                     var forecastTempEl = $("<div>");
                     forecastTempEl.addClass("forecastTemp");
-                    forecastTempEl.text(forecastTempArray[i]);
+                    forecastTempEl.text("Temp: " + forecastTempArray[i] + "°F");
                     forecastDayEl.append(forecastTempEl);
 
                     var forecastHumidityEl = $("<div>");
                     forecastHumidityEl.addClass("forecastHumidity");
-                    forecastHumidityEl.text(forecastHumidityArray[i]);
+                    forecastHumidityEl.text("Humidity: " + forecastHumidityArray[i] + "%");
                     forecastDayEl.append(forecastHumidityEl);
 
                     fiveDayForecastEl.append(forecastDayEl);
