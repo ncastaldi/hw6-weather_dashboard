@@ -4,12 +4,13 @@ $(document).ready(function () {
     var cityInputEl = $("#cityInput");
     var searchButton = $("#searchButton");
     var storedCitiesEl = $("#storedCities");
+    var currentWeatherEl = $("#currentWeather");
     var currentCityEl = $("#currentCity");
     var currentTempEl = $("#currentTemp");
     var currentHumidityEl = $("#currentHumidity");
     var currentWindEl = $("#currentWind");
-    var currentUVEl = $("currentUV");
-    var fiveDayForecastEl = $("fiveDayForecast");
+    var currentUVEl = $("#currentUV");
+    var fiveDayForecastEl = $("#fiveDayForecast");
 
     // Delcare JavaScript Variables
     queryCurrent = "https://api.openweathermap.org/data/2.5/weather?";
@@ -48,19 +49,22 @@ $(document).ready(function () {
             currentLon = response.coord.lon;
 
             /* Write "Current Weather Conditions" to screen */
-            currentCityEl.attr("style", "margin-top: 2%; border: 1px; border-color: gray; border-style: solid;")
             var currentCityH3 = $("<h3>");
             currentCityH3.text(currentCity + " " + "{TODAYS DATE}" + "{WEATHER ICON}");
             currentCityEl.append(currentCityH3);
             var currentTempP = $("<p>");
             currentTempP.text("Temperature: " + currentTemp + "°F");
-            currentCityEl.append(currentTempP);
+            currentTempEl.append(currentTempP);
             var currentHumidityP = $("<p>");
             currentHumidityP.text("Humidity: " + currentHumidity + "%");
-            currentCityEl.append(currentHumidityP);
+            currentHumidityEl.append(currentHumidityP);
             var currentWindP = $("<p>");
             currentWindP.text("Wind Speed: " + currentWind + " MPH");
-            currentCityEl.append(currentWindP);
+            currentWindEl.append(currentWindP);
+
+            /* Add border around "Current Weather Conditions" */
+            currentWeatherEl.attr("style", "margin-top: 2%; border: 1px; border-color: gray; border-style: solid;")
+
 
             /* Make ajax call for "Current UV Index" */
             $.ajax({
@@ -73,15 +77,40 @@ $(document).ready(function () {
                 /* Write "Current UV Index to screen" */
                 var currentUVIndexP = $("<p>");
                 currentUVIndexP.text("UV Index: " + currentUV);
-                currentCityEl.append(currentUVIndexP);
+                currentUVEl.append(currentUVIndexP);
             })
+
 
             /* Make ajax call for "Five Day Forecast" */
             $.ajax({
-                url: queryForecast + myKey + "&q=" + currentCity,
+                url: queryForecast + myKey + "&q=" + currentCity + "&units=imperial&mode=json",
                 method: "GET"
             }).then(function (response) {
                 console.log(response);
+                var forecastDateArray = [];
+                var forecastIconArray = [];
+                var forecastTempArray = [];
+                var forecastHumidityArray = [];
+                /* Store "Five Day Forecast Data" */
+                for (var i = 0; i < response.list.length; i += 8) {
+                    // console.log(response.list[i].dt_txt);
+                    // console.log(response.list[i].main.temp);
+                    // console.log(response.list[i].main.humidity);
+
+                    forecastDateArray.push(response.list[i].dt_txt);
+                    forecastIconArray.push(response.list[i].weather.icon);
+                    forecastTempArray.push(response.list[i].main.temp);
+                    forecastHumidityArray.push(response.list[i].main.humidity);
+                }
+                console.log(forecastDateArray);
+                console.log(forecastIconArray);
+                console.log(forecastTempArray);
+                console.log(forecastHumidityArray);
+
+                /* Write "Five Day Forecast Data" to screen */
+                var fiveDayForecastH3 = $("<h3>");
+                fiveDayForecastH3.text("5-Day Forecast:");
+                fiveDayForecastEl.append(fiveDayForecastH3);
             })
         })
     }
