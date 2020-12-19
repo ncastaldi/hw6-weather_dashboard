@@ -25,11 +25,15 @@ $(document).ready(function () {
 
 
     // Declare Functions
-    function retrieveWeatherData(event) {
+    function retrieveWeatherData(event, lastSearchCity) {
         event.preventDefault();
+        currentCityEl.empty();
 
-        var currentCity = cityInputEl[0].value;
-        storeSearchedCity(currentCity);
+        console.log("last searched city: " + lastSearchCity);
+        if (localStorage.getItem("lastSearchCity") !== undefined) {
+            var currentCity = cityInputEl[0].value;
+            storeSearchedCity(currentCity);
+        }
 
         /* Make ajax call for "Current Weather Conditions" */
         $.ajax({
@@ -43,12 +47,32 @@ $(document).ready(function () {
             currentLat = response.coord.lat;
             currentLon = response.coord.lon;
 
+            /* Write "Current Weather Conditions" to screen */
+            var currentCityH3 = $("<h3>");
+            currentCityH3.text(currentCity + " " + "{TODAYS DATE}" + "{WEATHER ICON}");
+            currentCityEl.append(currentCityH3);
+            var currentTempP = $("<p>");
+            currentTempP.text("Temperature: " + currentTemp + "°F");
+            currentCityEl.append(currentTempP);
+            var currentHumidityP = $("<p>");
+            currentHumidityP.text("Humidity: " + currentHumidity + "%");
+            currentCityEl.append(currentHumidityP);
+            var currentWindP = $("<p>");
+            currentWindP.text("Wind Speed: " + currentWind + " MPH");
+            currentCityEl.append(currentWindP);
+
             /* Make ajax call for "Current UV Index" */
             $.ajax({
                 url: queryUV + myKey + "&lat=" + currentLat + "&lon=" + currentLon,
                 method: "GET"
             }).then(function (response) {
+                /* Store "Current UV Index" */
                 currentUV = response.value;
+
+                /* Write "Current UV Index to screen" */
+                var currentUVIndexP = $("<p>");
+                currentUVIndexP.text("UV Index: " + currentUV);
+                currentCityEl.append(currentUVIndexP);
             })
 
             /* Make ajax call for "Five Day Forecast" */
@@ -66,7 +90,16 @@ $(document).ready(function () {
         localStorage.setItem("lastSearchedCity", currCity);
     }
 
+    function pageInit() {
+        console.log("success");
+        if (localStorage.getItem("lastSearchCity") !== null) {
+            lastSeached = localStorage.get("lastSearchedCity");
+            retrieveWeatherData(lastSearched);
+        }
+    }
+
     // Make Function Calls
+    pageInit();
 
     // Register Event Listeners
     searchButton.on("click", retrieveWeatherData);
