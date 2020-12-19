@@ -16,9 +16,13 @@ $(document).ready(function () {
     queryURL = ""; //ToDo: include basic query url
 
     // Declare Functions
+    function retrieveWeatherData(event) {
+        event.preventDefault();
+        /* BUILD AJAX CALL HERE */
+    }
 
     // Make Function Calls
 
     // Register Event Listeners
-    $()
+    searchButton.on("click", retrieveWeatherData);
 })
