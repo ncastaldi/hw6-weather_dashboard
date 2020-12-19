@@ -12,13 +12,23 @@ $(document).ready(function () {
     var fiveDayForecastEl = $("fiveDayForecast");
 
     // Delcare JavaScript Variables
-    myKey = "3ba28d112b1ad87abd972d7f6388e493";
-    queryURL = "https://api.openweathermap.org/data/2.5/weather?";
+    queryCurrent = "https://api.openweathermap.org/data/2.5/weather?";
+    queryForecast = "";
+    myKey = "appid=3ba28d112b1ad87abd972d7f6388e493&q=";
 
     // Declare Functions
     function retrieveWeatherData(event) {
         event.preventDefault();
-        /* BUILD AJAX CALL HERE */
+
+        var capturedInput = cityInputEl[0].value;
+
+        /* Make ajax call for "Current Weather" */
+        $.ajax({
+            url: queryCurrent + myKey + capturedInput,
+            method: "GET"
+        }).then(function (response) {
+            console.log(response);
+        })
     }
 
     // Make Function Calls
