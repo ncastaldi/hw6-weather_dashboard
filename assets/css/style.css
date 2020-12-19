@@ -29,6 +29,7 @@ header {
 
 #citySearch {
     background-color: #f8f9fa;
+    margin-bottom: 5%;
 }
 
 #citySearch p {
@@ -54,8 +55,4 @@ header {
 
 #fiveDayForecast {
     margin-top: 5%;
-}
-
-#leftCol {
-    margin-bottom: 5%;
 }
