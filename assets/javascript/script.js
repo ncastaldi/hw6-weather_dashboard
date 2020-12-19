@@ -15,7 +15,14 @@ $(document).ready(function () {
     queryCurrent = "https://api.openweathermap.org/data/2.5/weather?";
     queryUV = "http://api.openweathermap.org/data/2.5/uvi?";
     queryForecast = "http://api.openweathermap.org/data/2.5/forecast?";
-    myKey = "appid=3ba28d112b1ad87abd972d7f6388e493&q=";
+    myKey = "appid=3ba28d112b1ad87abd972d7f6388e493";
+    var currentDate; //ToDo: Add moment.js to capture and display date
+    var currentTemp;
+    var currentHumidity;
+    var currentUV;
+    var currentLat;
+    var currentLon;
+
 
     // Declare Functions
     function retrieveWeatherData(event) {
@@ -23,31 +30,34 @@ $(document).ready(function () {
 
         var currentCity = cityInputEl[0].value;
 
-        /* Make ajax call for "Current Weather" */
+        /* Make ajax call for "Current Weather Conditions" */
         $.ajax({
-            url: queryCurrent + myKey + currentCity + "units=imperial",
+            url: queryCurrent + myKey + "&q=" + currentCity + "&units=imperial",
             method: "GET"
         }).then(function (response) {
             console.log(response);
 
-            /* Store retrieved data */
-            var currentDate = ""; //ToDo: Add moment.js to capture and display date
-            var currentTemp = response.main.temp;
-            var currentHumidity = response.main.humidity;
-            var currentWind = response.wind.speed;
-            var currLat = response.coord.lat;
-            var currLon = response.coord.lon;
-            var currUV = retrieveUVIndex(currLat, currLon);
+            /* Store "Current Weater Conditions" */
+            currentTemp = response.main.temp;
+            currentHumidity = response.main.humidity;
+            currentWind = response.wind.speed;
+            currentLat = response.coord.lat;
+            currentLon = response.coord.lon;
+            console.log("lat= " + currentLat);
+            console.log("lon= " + currentLon);
+
+            /* Make ajax call for "Current UV Index" */
+            $.ajax({
+                url: queryUV + myKey + "&lat=" + currentLat + "&lon=" + currentLon,
+                method: "GET"
+            }).then(function (response) {
+                console.log(response);
+                currentUV = response.value;
+                console.log(currentUV);
+            })
+
 
         })
-    }
-
-    function retrieveUVIndex(lat, lon) {
-        $.ajax({
-            url: queryUV + myKey
-        })
-
-        return uvIndex;
     }
 
     // Make Function Calls
