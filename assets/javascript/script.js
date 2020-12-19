@@ -7,7 +7,7 @@ $(document).ready(function () {
     var currentCityEl = $("#currentCity");
     var currentTempEl = $("#currentTemp");
     var currentHumidityEl = $("#currentHumidity");
-    var currentWind = $("#currentWind");
+    var currentWindEl = $("#currentWind");
     var currentUVEl = $("currentUV");
     var fiveDayForecastEl = $("fiveDayForecast");
 
@@ -43,19 +43,14 @@ $(document).ready(function () {
             currentWind = response.wind.speed;
             currentLat = response.coord.lat;
             currentLon = response.coord.lon;
-            console.log("lat= " + currentLat);
-            console.log("lon= " + currentLon);
 
             /* Make ajax call for "Current UV Index" */
             $.ajax({
                 url: queryUV + myKey + "&lat=" + currentLat + "&lon=" + currentLon,
                 method: "GET"
             }).then(function (response) {
-                console.log(response);
                 currentUV = response.value;
-                console.log(currentUV);
             })
-
 
         })
     }
