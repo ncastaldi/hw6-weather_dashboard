@@ -92,36 +92,41 @@ $(document).ready(function () {
                 var forecastHumidityArray = [];
                 /* Store "Five Day Forecast Data" */
                 for (var i = 0; i < response.list.length; i += 8) {
-                    // console.log(response.list[i].dt_txt);
-                    // console.log(response.list[i].main.temp);
-                    // console.log(response.list[i].main.humidity);
-
                     forecastDateArray.push(response.list[i].dt_txt);
                     forecastIconArray.push(response.list[i].weather.icon);
                     forecastTempArray.push(response.list[i].main.temp);
                     forecastHumidityArray.push(response.list[i].main.humidity);
                 }
-                console.log(forecastDateArray);
-                console.log(forecastIconArray);
-                console.log(forecastTempArray);
-                console.log(forecastHumidityArray);
 
                 /* Write "Five Day Forecast Data" to screen */
                 var fiveDayForecastH3 = $("<h3>");
                 fiveDayForecastH3.text("5-Day Forecast:");
                 fiveDayForecastEl.append(fiveDayForecastH3);
-
                 for (var i = 0; i < 5; i++) {
                     var forecastDayEl = $("<div>");
                     forecastDayEl.addClass("forecastDay");
+
                     var forecastDateEl = $("<div>");
                     forecastDateEl.addClass("forecastDate");
                     forecastDateEl.text(forecastDateArray[i]);
                     forecastDayEl.append(forecastDateEl);
-                    forecastDayEl.append(forecastDateEl);
+
+                    var forecastIconEl = $("<div>");
+                    forecastIconEl.addClass("forecastIcon");
+                    forecastIconEl.text(forecastIconArray[i]);
+                    forecastDayEl.append(forecastIconEl);
+
+                    var forecastTempEl = $("<div>");
+                    forecastTempEl.addClass("forecastTemp");
+                    forecastTempEl.text(forecastTempArray[i]);
+                    forecastDayEl.append(forecastTempEl);
+
+                    var forecastHumidityEl = $("<div>");
+                    forecastHumidityEl.addClass("forecastHumidity");
+                    forecastHumidityEl.text(forecastHumidityArray[i]);
+                    forecastDayEl.append(forecastHumidityEl);
+
                     fiveDayForecastEl.append(forecastDayEl);
-
-
                 }
             })
         })
