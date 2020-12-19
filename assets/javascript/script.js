@@ -29,6 +29,7 @@ $(document).ready(function () {
         event.preventDefault();
 
         var currentCity = cityInputEl[0].value;
+        storeSearchedCity(currentCity);
 
         /* Make ajax call for "Current Weather Conditions" */
         $.ajax({
@@ -58,6 +59,11 @@ $(document).ready(function () {
                 console.log(response);
             })
         })
+    }
+
+    function storeSearchedCity(currCity) {
+        console.log(currCity);
+        localStorage.setItem("lastSearchedCity", currCity);
     }
 
     // Make Function Calls
