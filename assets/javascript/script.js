@@ -24,7 +24,6 @@ $(document).ready(function () {
     var currentLat;
     var currentLon;
 
-
     // Declare Functions
     function retrieveWeatherData(event, lastSearchCity) {
         event.preventDefault();
@@ -64,7 +63,6 @@ $(document).ready(function () {
 
             /* Add border around "Current Weather Conditions" */
             currentWeatherEl.attr("style", "margin-top: 2%; border: 1px; border-color: gray; border-style: solid;")
-
 
             /* Make ajax call for "Current UV Index" */
             $.ajax({
