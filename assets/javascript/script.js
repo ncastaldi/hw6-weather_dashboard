@@ -43,6 +43,7 @@ $(document).ready(function () {
             method: "GET"
         }).then(function (response) {
             /* Store "Current Weater Conditions" */
+            currentDate = 0;
             currentIcon = iconURL + response.weather[0].icon + "@2x.png";
             currentTemp = response.main.temp;
             currentHumidity = response.main.humidity;
@@ -55,7 +56,7 @@ $(document).ready(function () {
             //currentCityH3.text(currentCity + " " + "{TODAYS DATE}" + "{WEATHER ICON}");
             currentCityH3.text(currentCity + "     ");
             var currDate = $("<p>");
-            currDate = "(" + "8/15/2020" + ")     ";
+            currDate = "(" + currentDate + ")     ";
             currentCityH3.append(currDate);
             var currIcon = $("<img>");
             currIcon.attr("src", currentIcon);
