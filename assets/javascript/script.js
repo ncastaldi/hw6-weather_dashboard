@@ -35,8 +35,6 @@ $(document).ready(function () {
             url: queryCurrent + myKey + "&q=" + currentCity + "&units=imperial",
             method: "GET"
         }).then(function (response) {
-            console.log(response);
-
             /* Store "Current Weater Conditions" */
             currentTemp = response.main.temp;
             currentHumidity = response.main.humidity;
@@ -52,6 +50,13 @@ $(document).ready(function () {
                 currentUV = response.value;
             })
 
+            /* Make ajax call for "Five Day Forecast" */
+            $.ajax({
+                url: queryForecast + myKey + "&q=" + currentCity,
+                method: "GET"
+            }).then(function (response) {
+                console.log(response);
+            })
         })
     }
 
