@@ -19,6 +19,7 @@ $(document).ready(function () {
     iconURL = "http://openweathermap.org/img/wn/";
     myKey = "appid=3ba28d112b1ad87abd972d7f6388e493";
     var currentDate; //ToDo: Add moment.js to capture and display date
+    var currentIcon;
     var currentTemp;
     var currentHumidity;
     var currentUV;
@@ -28,9 +29,11 @@ $(document).ready(function () {
     // Declare Functions
     function retrieveWeatherData(event, lastSearchCity) {
         event.preventDefault();
-        currentCityEl.empty();
 
-        console.log("last searched city: " + lastSearchCity);
+        clearPage();
+
+
+        //console.log("last searched city: " + lastSearchCity);
         if (localStorage.getItem("lastSearchCity") !== undefined) {
             var currentCity = cityInputEl[0].value;
             storeSearchedCity(currentCity);
@@ -42,6 +45,8 @@ $(document).ready(function () {
             method: "GET"
         }).then(function (response) {
             /* Store "Current Weater Conditions" */
+            currentIcon = iconURL + response.weather[0].icon + "@2x.png";
+            console.log(currentIcon);
             currentTemp = response.main.temp;
             currentHumidity = response.main.humidity;
             currentWind = response.wind.speed;
@@ -85,7 +90,6 @@ $(document).ready(function () {
                 url: queryForecast + myKey + "&q=" + currentCity + "&units=imperial&mode=json",
                 method: "GET"
             }).then(function (response) {
-                console.log(response);
                 var forecastDateArray = [];
                 var forecastIconArray = [];
                 var forecastTempArray = [];
@@ -93,7 +97,7 @@ $(document).ready(function () {
                 /* Store "Five Day Forecast Data" */
                 for (var i = 0; i < response.list.length; i += 8) {
                     forecastDateArray.push(response.list[i].dt_txt);
-                    forecastIconArray.push(response.list[i].weather.icon);
+                    forecastIconArray.push(response.list[i].weather[0].icon);
                     forecastTempArray.push(response.list[i].main.temp);
                     forecastHumidityArray.push(response.list[i].main.humidity);
                 }
@@ -111,8 +115,9 @@ $(document).ready(function () {
                     forecastDateEl.text(forecastDateArray[i]);
                     forecastDayEl.append(forecastDateEl);
 
-                    var forecastIconEl = $("<div>");
+                    var forecastIconEl = $("<img>");
                     forecastIconEl.addClass("forecastIcon");
+                    forecastIconEl.attr("src", iconURL + forecastIconArray[i] + "@2x.png");
                     forecastIconEl.text(forecastIconArray[i]);
                     forecastDayEl.append(forecastIconEl);
 
@@ -133,16 +138,26 @@ $(document).ready(function () {
     }
 
     function storeSearchedCity(currCity) {
-        console.log(currCity);
+        //console.log(currCity);
         localStorage.setItem("lastSearchedCity", currCity);
     }
 
     function pageInit() {
-        console.log("success");
+        //console.log("success");
         if (localStorage.getItem("lastSearchCity") !== null) {
             lastSeached = localStorage.get("lastSearchedCity");
             retrieveWeatherData(lastSearched);
         }
+    }
+
+    function clearPage() {
+        currentCityEl.empty();
+        fiveDayForecastEl.empty();
+        currentTempEl.empty();
+        currentHumidityEl.empty();
+        currentWindEl.empty();
+        currentUVEl.empty();
+        fiveDayForecastEl.empty();
     }
 
     // Make Function Calls
