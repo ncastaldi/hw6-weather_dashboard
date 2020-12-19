@@ -1,7 +1,3 @@
-div {
-    /* border: 5px; border-color: black; border-style: dashed; */
-}
-
 header {
     font-size: xx-large;
     text-align: center;
@@ -44,13 +40,6 @@ header {
 #citySearch input {
     width: 65%;
     margin-bottom: 10px;
-}
-
-#currentWeather {
-/*     margin-top: 2%;
-    border: 1px;
-    border-color: gray;
-    border-style: solid; */
 }
 
 #fiveDayForecast {
