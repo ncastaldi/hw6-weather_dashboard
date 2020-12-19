@@ -1,1 +1,5 @@
-console.log("linked JS");
+$(document).ready(function () {
+
+    console.log("linked jquery");
+
+})
