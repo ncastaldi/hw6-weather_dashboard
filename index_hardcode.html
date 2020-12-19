@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Weather Dashboard</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <main class="container-fluid">
+        <header class="row">
+            <div class="col">
+                <h1>Weather Dashboard</h1>
+            </div>
+        </header>
+
+        <section class="row">
+            <div class="col-md-3 col-sm-1" id="citySearch">
+                <div id="leftCol">
+                    <h5>Search for a City:</h5>
+                    <input type="text">
+                    <button class="btn btn-primary fas fa-search"></button>
+
+                    <p>North Caldwell</p>
+                    <p>Pittsburgh</p>
+                    <p>Allentown</p>
+                    <p>Bloomington</p>
+                    <p>Minneapolis</p>
+                    <p>Ha'zorea</p>
+                    <p>Atlanta</p>
+                    <p>London</p>
+                </div>
+            </div>
+            <div class="col-md-9 col-sm-1">
+                <div class="row">
+                    <div class="col" id="currentWeather">
+                        <div class="row" id="currentCity">
+                            <h3>City Name Date Weather Icon</h3>
+                        </div>
+                        <div class="row" id="currentTemp">
+                            <p>Temperature</p>
+                        </div>
+                        <div class="row" id="currentHumidity">
+                            <p>Humidity</p>
+                        </div>
+                        <div class="row" id="currentWind">
+                            <p>Wind Speed</p>
+                        </div>
+                        <div class="row" id="currentUV">
+                            <p>UV Index</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="row" id="fiveDayForecast">
+                            <h3>5-Day Forecast:</h3>
+                            <div class="col-1 forecastDay">
+                                <div class="row forecastDate">8/16/2020</div>
+                                <div class="row forecastIcon">Weather Icon</div>
+                                <div class="row forecastTemp">Temp: 86.65F</div>
+                                <div class="row forcastHumidity">Humidity: 43%</div>
+                            </div>
+                            <div class="col-1 forecastDay">
+                                <div class="row forecastDate">8/16/2020</div>
+                                <div class="row forecastIcon">Weather Icon</div>
+                                <div class="row forecastTemp">Temp: 86.65F</div>
+                                <div class="row forcastHumidity">Humidity: 43%</div>
+                            </div>
+                            <div class="col-1 forecastDay">
+                                <div class="row forecastDate">8/16/2020</div>
+                                <div class="row forecastIcon">Weather Icon</div>
+                                <div class="row forecastTemp">Temp: 86.65F</div>
+                                <div class="row forcastHumidity">Humidity: 43%</div>
+                            </div>
+                            <div class="col-1 forecastDay">
+                                <div class="row forecastDate">8/16/2020</div>
+                                <div class="row forecastIcon">Weather Icon</div>
+                                <div class="row forecastTemp">Temp: 86.65F</div>
+                                <div class="row forcastHumidity">Humidity: 43%</div>
+                            </div>
+                            <div class="col-1 forecastDay">
+                                <div class="row forecastDate">8/16/2020</div>
+                                <div class="row forecastIcon">Weather Icon</div>
+                                <div class="row forecastTemp">Temp: 86.65F</div>
+                                <div class="row forcastHumidity">Humidity: 43%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://kit.fontawesome.com/125e323a70.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
