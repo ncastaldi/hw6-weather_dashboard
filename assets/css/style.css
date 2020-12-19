@@ -47,10 +47,10 @@ header {
 }
 
 #currentWeather {
-    margin-top: 2%;
+/*     margin-top: 2%;
     border: 1px;
     border-color: gray;
-    border-style: solid;
+    border-style: solid; */
 }
 
 #fiveDayForecast {

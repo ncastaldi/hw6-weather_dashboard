@@ -48,6 +48,7 @@ $(document).ready(function () {
             currentLon = response.coord.lon;
 
             /* Write "Current Weather Conditions" to screen */
+            currentCityEl.attr("style", "margin-top: 2%; border: 1px; border-color: gray; border-style: solid;")
             var currentCityH3 = $("<h3>");
             currentCityH3.text(currentCity + " " + "{TODAYS DATE}" + "{WEATHER ICON}");
             currentCityEl.append(currentCityH3);
