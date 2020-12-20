@@ -32,6 +32,7 @@ $(document).ready(function () {
         clearPage();
 
         var currentCity = cityInputEl[0].value;
+        currentCity = capitalizeInput(currentCity);
 
         /* Make ajax call for "Current Weather Conditions" */
         $.ajax({
@@ -182,6 +183,12 @@ $(document).ready(function () {
         currentWindEl.empty();
         currentUVEl.empty();
         fiveDayForecastEl.empty();
+    }
+
+    function capitalizeInput(city) {
+        return city.replace(/(?:^|\s)\w/g, function (match) {
+            return match.toUpperCase();
+        });
     }
 
     // Make Function Calls
