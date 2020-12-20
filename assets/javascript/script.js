@@ -25,6 +25,7 @@ $(document).ready(function () {
     var currentUV;
     var currentLat;
     var currentLon;
+    var citiesSearchedArray = [];
 
     // Declare Functions
     function retrieveWeatherData(event) {
@@ -84,6 +85,7 @@ $(document).ready(function () {
                 var currentUVIndexP = $("<p>");
                 //currentUVIndexP.text("UV Index: " + currentUV);
                 currentUVIndexP.text("UV Index: ");
+                currentUVIndexP.attr("width", "fit-content");
                 var dataP = $("<p>");
                 dataP.text(currentUV);
                 dataP.attr("width", "fit-content");
@@ -165,14 +167,15 @@ $(document).ready(function () {
 
     function storeSearchedCity(currCity) {
         console.log("Current City: " + currCity);
-        localStorage.setItem("lastSearchedCity", currCity);
+        citiesSearchedArray.unshift(currCity);
+        localStorage.setItem("citiesSearched", JSON.stringify(citiesSearchedArray));
     }
 
     function pageInit() {
-        // console.log(localStorage.getItem("lastSearchedCity"));
-        // if (localStorage.getItem("lastSearchedCity") !== null) {
-        //     var currentCity = localStorage.getItem("lastSearchedCity");
-        //retrieveWeatherData(null, currentCity);
+        var citiesFromStorage = JSON.parse(localStorage.getItem("citiesSearched"));
+        if (citiesFromStorage !== null) {
+            citiesSearchedArray = citiesFromStorage;
+        }
     }
 
     function clearPage() {
