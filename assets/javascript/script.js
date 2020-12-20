@@ -31,14 +31,12 @@ $(document).ready(function () {
 
     // Declare Functions
     function retrieveWeatherData(event) {
-        // event.preventDefault();
         clearPage();
 
         if (localStorage.getItem("dynamicSearch") !== null) {
             currentCity = dynamicSearch;
             localStorage.removeItem("dynamicSearch");
         } else {
-            console.log(cityInputEl[0].value);
             currentCity = cityInputEl[0].value;
             currentCity = capitalizeInput(currentCity);
             cityInputEl[0].value = "";
@@ -112,7 +110,7 @@ $(document).ready(function () {
                 } else if (currentUV >= 11) {
                     dataP.addClass("UV-purple");
                 } else {
-                    console.log("Something Broke. Contact Admin.");
+                    console.log("Operation Failed Successfully.");
                 }
 
                 currentUVIndexP.append(dataP);
