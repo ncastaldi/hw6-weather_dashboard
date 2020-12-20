@@ -21,13 +21,14 @@ The site uses `localStorage` to store any persistent data.
 Installation requires uploading the application files and folders to root of web server.
 ## Usage 
 
-Provide instructions and examples for use. Include screenshots as needed. 
+GitHub Repository: [https://github.com/ncastaldi/hw6-weather_dashboard](https://github.com/ncastaldi/hw6-weather_dashboard)
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+![Repo Screenshot](./assets/images/reposcreenshot.png)
 
-```md
-![alt text](assets/images/screenshot.png)
-```
+Live Site: [https://www.castaldi.dev/hw6-weather_dashboard/index.html](https://www.castaldi.dev/hw6-weather_dashboard/index.html)
+
+![Site Screenshot 1](./assets/images/sitescreenshot1.png)
+![Site Screenshot 2](./assets/images/sitescreenshot2.png)
 
 ## License
 
