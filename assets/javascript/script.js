@@ -199,6 +199,9 @@ $(document).ready(function () {
                 var cityButton = $("<p>").attr("data-listOrder", i).text(citiesSearchedArray[i]);
                 storedCitiesEl.append(cityButton);
             }
+            dynamicSearch = citiesSearchedArray[0];
+            localStorage.setItem("dynamicSearch", dynamicSearch);
+            retrieveWeatherData();
         }
     }
 
