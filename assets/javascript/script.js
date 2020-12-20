@@ -161,13 +161,16 @@ $(document).ready(function () {
             })
         })
 
-        //console.log(currentCity);
         storeSearchedCity(currentCity)
     }
 
     function storeSearchedCity(currCity) {
         /* Add last searched city to front of array */
         citiesSearchedArray.unshift(currCity);
+
+        /* Add last searched city to list on page */
+        var cityButton = $("<p>").addClass("").text(citiesSearchedArray[0]);
+        storedCitiesEl.prepend(cityButton);
 
         /* Add array to localStorage */
         localStorage.setItem("citiesSearched", JSON.stringify(citiesSearchedArray));
@@ -178,6 +181,11 @@ $(document).ready(function () {
         var citiesFromStorage = JSON.parse(localStorage.getItem("citiesSearched"));
         if (citiesFromStorage !== null) {
             citiesSearchedArray = citiesFromStorage;
+
+            for (var i = 0; i < citiesSearchedArray.length; i++) {
+                var cityButton = $("<p>").addClass("").text(citiesSearchedArray[i]);
+                storedCitiesEl.append(cityButton);
+            }
         }
     }
 
