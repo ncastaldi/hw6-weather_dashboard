@@ -23,6 +23,41 @@ header {
     font-size: large;
 }
 
+.UV-green {
+    background-color: green;
+    padding: 5px;
+    color: white;
+    width: fit-content;
+}
+
+.UV-yellow {
+    background-color: yellow;
+    padding: 5px;
+    color: white;
+    width: fit-content;
+}
+
+.UV-orange {
+    background-color: orange;
+    padding: 5px;
+    color: white;
+    width: fit-content;
+}
+
+.UV-red {
+    background-color: red;
+    padding: 5px;
+    color: white;
+    width: fit-content;
+}
+
+.UV-purple {
+    background-color: purple;
+    padding: 5px;
+    color: white;
+    width: fit-content;
+}
+
 #citySearch {
     background-color: #f8f9fa;
     margin-bottom: 5%;

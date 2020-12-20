@@ -85,20 +85,21 @@ $(document).ready(function () {
                 currentUVIndexP.text("UV Index: ");
                 var dataP = $("<p>");
                 dataP.text(currentUV);
-                console.log(currentUV);
+                dataP.attr("width", "fit-content");
 
+                /* Determine color of UV Index element based on scale */
                 if (currentUV < 3) {
-                    console.log("green");
-                } else if (currentUV >= 3 && currentUV <= 5) {
-                    console.log("yellow");
-                } else if (currentUV >= 6 && currentUV <= 7) {
-                    console.log("orange");
-                } else if (currentUV >= 8 && currentUV <= 10) {
-                    console.log("red");
+                    dataP.addClass("UV-green");
+                } else if (currentUV >= 3 && currentUV < 6) {
+                    dataP.addClass("UV-yellow");
+                } else if (currentUV >= 6 && currentUV < 8) {
+                    dataP.addClass("UV-orange");
+                } else if (currentUV >= 8 && currentUV < 11) {
+                    dataP.addClass("UV-red");
                 } else if (currentUV >= 11) {
-                    console.log("purple");
+                    dataP.addClass("UV-purple");
                 } else {
-                    console.log("still nope")
+                    console.log("Something Broke. Contact Admin.");
                 }
 
                 currentUVIndexP.append(dataP);
