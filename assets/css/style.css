@@ -33,14 +33,14 @@ header {
 .UV-yellow {
     background-color: yellow;
     padding: 5px;
-    color: white;
+    color: black;
     width: fit-content;
 }
 
 .UV-orange {
     background-color: orange;
     padding: 5px;
-    color: white;
+    color: black;
     width: fit-content;
 }
 
