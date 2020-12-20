@@ -3,6 +3,7 @@ $(document).ready(function () {
     // Declare DOM Variables
     var cityInputEl = $("#cityInput");
     var searchButton = $("#searchButton");
+    var clearButton = $("#clearSearchHistory");
     var storedCitiesEl = $("#storedCities");
     var currentWeatherEl = $("#currentWeather");
     var currentCityEl = $("#currentCity");
@@ -217,6 +218,10 @@ $(document).ready(function () {
 
     // Register Event Listeners
     searchButton.on("click", retrieveWeatherData);
+    clearButton.on("click", function () {
+        localStorage.removeItem("citiesSearched");
+        storedCitiesEl.empty();
+    })
     storedCitiesEl.on("click", "p", function () {
         dynamicSearch = this.innerHTML;
         localStorage.setItem("dynamicSearch", dynamicSearch);
