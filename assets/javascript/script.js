@@ -133,6 +133,7 @@ $(document).ready(function () {
 
                     var forecastDateEl = $("<div>");
                     forecastDateEl.addClass("forecastDate");
+                    forecastDateArray[i] = forecastDateArray[i].substring(0, 10);
                     forecastDateEl.text(forecastDateArray[i]);
                     forecastDayEl.append(forecastDateEl);
 
