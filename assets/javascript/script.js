@@ -18,6 +18,7 @@ $(document).ready(function () {
     queryForecast = "https://api.openweathermap.org/data/2.5/forecast?";
     iconURL = "https://openweathermap.org/img/wn/";
     myKey = "appid=3ba28d112b1ad87abd972d7f6388e493";
+    var currentCity;
     var currentDate;
     var currentIcon;
     var currentTemp;
@@ -29,11 +30,16 @@ $(document).ready(function () {
 
     // Declare Functions
     function retrieveWeatherData(event) {
-        event.preventDefault();
+        // event.preventDefault();
         clearPage();
 
-        var currentCity = cityInputEl[0].value;
-        currentCity = capitalizeInput(currentCity);
+        var dynamicSearch = localStorage.getItem("dynamicSearch");
+        if (dynamicSearch !== null) {
+            currentCity = dynamicSearch;
+        } else {
+            currentCity = cityInputEl[0].value;
+            currentCity = capitalizeInput(currentCity);
+        }
 
         /* Make ajax call for "Current Weather Conditions" */
         $.ajax({
@@ -210,4 +216,9 @@ $(document).ready(function () {
 
     // Register Event Listeners
     searchButton.on("click", retrieveWeatherData);
-})
+    storedCitiesEl.on("click", "p", function () {
+        dynamicSearch = this.innerHTML;
+        localStorage.setItem("dynamicSearch", dynamicSearch);
+        retrieveWeatherData();
+    });
+});
