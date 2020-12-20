@@ -166,12 +166,15 @@ $(document).ready(function () {
     }
 
     function storeSearchedCity(currCity) {
-        console.log("Current City: " + currCity);
+        /* Add last searched city to front of array */
         citiesSearchedArray.unshift(currCity);
+
+        /* Add array to localStorage */
         localStorage.setItem("citiesSearched", JSON.stringify(citiesSearchedArray));
     }
 
     function pageInit() {
+        /* Check localStorage for exisiting data */
         var citiesFromStorage = JSON.parse(localStorage.getItem("citiesSearched"));
         if (citiesFromStorage !== null) {
             citiesSearchedArray = citiesFromStorage;
