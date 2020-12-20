@@ -33,8 +33,7 @@ $(document).ready(function () {
         // event.preventDefault();
         clearPage();
 
-        var dynamicSearch = localStorage.getItem("dynamicSearch");
-        if (dynamicSearch !== null) {
+        if (localStorage.getItem("dynamicSearch") !== null) {
             currentCity = dynamicSearch;
         } else {
             currentCity = cityInputEl[0].value;
