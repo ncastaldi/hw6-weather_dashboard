@@ -18,7 +18,7 @@ $(document).ready(function () {
     queryForecast = "https://api.openweathermap.org/data/2.5/forecast?";
     iconURL = "https://openweathermap.org/img/wn/";
     myKey = "appid=3ba28d112b1ad87abd972d7f6388e493";
-    var currentDate; //ToDo: Add moment.js to capture and display date
+    var currentDate;
     var currentIcon;
     var currentTemp;
     var currentHumidity;
@@ -49,7 +49,6 @@ $(document).ready(function () {
 
             /* Write "Current Weather Conditions" to screen */
             var currentCityH3 = $("<h3>");
-            //currentCityH3.text(currentCity + " " + "{TODAYS DATE}" + "{WEATHER ICON}");
             currentCityH3.text(currentCity + "     ");
             var currDate = $("<p>");
             currDate = "(" + currentDate + ")     ";
