@@ -41,6 +41,8 @@ $(document).ready(function () {
             console.log(cityInputEl[0].value);
             currentCity = cityInputEl[0].value;
             currentCity = capitalizeInput(currentCity);
+            cityInputEl[0].value = "";
+            cityInputEl[0].focus();
         }
 
         /* Make ajax call for "Current Weather Conditions" */
@@ -221,6 +223,7 @@ $(document).ready(function () {
     clearButton.on("click", function () {
         localStorage.removeItem("citiesSearched");
         storedCitiesEl.empty();
+        cityInputEl[0].value = "";
     })
     storedCitiesEl.on("click", "p", function () {
         dynamicSearch = this.innerHTML;
