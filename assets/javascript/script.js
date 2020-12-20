@@ -14,9 +14,9 @@ $(document).ready(function () {
 
     // Delcare JavaScript Variables
     queryCurrent = "https://api.openweathermap.org/data/2.5/weather?";
-    queryUV = "http://api.openweathermap.org/data/2.5/uvi?";
-    queryForecast = "http://api.openweathermap.org/data/2.5/forecast?";
-    iconURL = "http://openweathermap.org/img/wn/";
+    queryUV = "https://api.openweathermap.org/data/2.5/uvi?";
+    queryForecast = "https://api.openweathermap.org/data/2.5/forecast?";
+    iconURL = "https://openweathermap.org/img/wn/";
     myKey = "appid=3ba28d112b1ad87abd972d7f6388e493";
     var currentDate; //ToDo: Add moment.js to capture and display date
     var currentIcon;
