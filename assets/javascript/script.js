@@ -57,6 +57,7 @@ $(document).ready(function () {
             var currIcon = $("<img>");
             currIcon.attr("src", currentIcon);
             currentCityH3.append(currIcon);
+            $("#favicon").attr("href", currentIcon); //Dynamically update favicon with current weather icon
             currentCityEl.append(currentCityH3);
             var currentTempP = $("<p>");
             currentTempP.text("Temperature: " + currentTemp + "°F");
