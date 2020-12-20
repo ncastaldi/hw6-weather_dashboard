@@ -177,7 +177,6 @@ $(document).ready(function () {
         citiesSearchedArray.unshift(currCity);
 
         /* Add last searched city to list on page */
-        console.log("citiesSearchedArray length before rewriting to screen: " + citiesSearchedArray.length);
         for (var i = 0; i < citiesSearchedArray.length; i++) {
             var cityButton = $("<p>").attr("data-listOrder", i).text(currCity);
         }
@@ -230,26 +229,12 @@ $(document).ready(function () {
         cityInputEl[0].value = "";
     })
     storedCitiesEl.on("click", "p", function () {
-        console.log("Before: " + citiesSearchedArray);
-
         var clickedIndex = $(this).attr("data-listOrder");
-        console.log("Clicked Index: " + clickedIndex);
-
         var clickedCity = $(this)[0].innerHTML;
-        console.log("Clicked City: ", clickedCity);
-
-        /* Remove clicked city from list */
         citiesSearchedArray.splice(clickedIndex, 0);
-        console.log("After splice: " + citiesSearchedArray);
-
-        /* Add clicked city to top of list */
-        // citiesSearchedArray.unshift(clickedCity);
-        console.log("After unshift: " + citiesSearchedArray);
-
         localStorage.clear();
         localStorage.setItem("citiesSearched", JSON.stringify(citiesSearchedArray));
         pageInit();
-
         dynamicSearch = this.innerHTML;
         localStorage.setItem("dynamicSearch", dynamicSearch);
         retrieveWeatherData();
