@@ -224,6 +224,8 @@ $(document).ready(function () {
         cityInputEl[0].value = "";
     })
     storedCitiesEl.on("click", "p", function () {
+        console.log(this.innerHTML);
+        console.log(citiesSearchedArray);
         dynamicSearch = this.innerHTML;
         localStorage.setItem("dynamicSearch", dynamicSearch);
         retrieveWeatherData();
