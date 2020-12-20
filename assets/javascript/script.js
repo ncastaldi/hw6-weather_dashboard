@@ -81,8 +81,30 @@ $(document).ready(function () {
 
                 /* Write "Current UV Index to screen" */
                 var currentUVIndexP = $("<p>");
-                currentUVIndexP.text("UV Index: " + currentUV);
+                //currentUVIndexP.text("UV Index: " + currentUV);
+                currentUVIndexP.text("UV Index: ");
+                var dataP = $("<p>");
+                dataP.text(currentUV);
+                console.log(currentUV);
+
+                if (currentUV < 3) {
+                    console.log("green");
+                } else if (currentUV >= 3 && currentUV <= 5) {
+                    console.log("yellow");
+                } else if (currentUV >= 6 && currentUV <= 7) {
+                    console.log("orange");
+                } else if (currentUV >= 8 && currentUV <= 10) {
+                    console.log("red");
+                } else if (currentUV >= 11) {
+                    console.log("purple");
+                } else {
+                    console.log("still nope")
+                }
+
+                currentUVIndexP.append(dataP);
+
                 currentUVEl.append(currentUVIndexP);
+
             })
 
 
