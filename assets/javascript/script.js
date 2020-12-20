@@ -103,11 +103,8 @@ $(document).ready(function () {
                 }
 
                 currentUVIndexP.append(dataP);
-
                 currentUVEl.append(currentUVIndexP);
-
             })
-
 
             /* Make ajax call for "Five Day Forecast" */
             $.ajax({
@@ -161,7 +158,7 @@ $(document).ready(function () {
         })
 
         //console.log(currentCity);
-        //storeSearchedCity(currentCity)
+        storeSearchedCity(currentCity)
     }
 
     function storeSearchedCity(currCity) {
