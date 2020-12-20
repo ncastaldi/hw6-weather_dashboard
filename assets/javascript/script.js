@@ -27,15 +27,11 @@ $(document).ready(function () {
     var currentLon;
 
     // Declare Functions
-    function retrieveWeatherData(event, lastSearchCity) {
+    function retrieveWeatherData(event) {
         event.preventDefault();
         clearPage();
 
-        //console.log("last searched city: " + lastSearchCity);
-        if (localStorage.getItem("lastSearchCity") !== undefined) {
-            var currentCity = cityInputEl[0].value;
-            storeSearchedCity(currentCity);
-        }
+        var currentCity = cityInputEl[0].value;
 
         /* Make ajax call for "Current Weather Conditions" */
         $.ajax({
@@ -140,19 +136,21 @@ $(document).ready(function () {
                 }
             })
         })
+
+        //console.log(currentCity);
+        //storeSearchedCity(currentCity)
     }
 
     function storeSearchedCity(currCity) {
-        //console.log(currCity);
+        console.log("Current City: " + currCity);
         localStorage.setItem("lastSearchedCity", currCity);
     }
 
     function pageInit() {
-        //console.log("success");
-        if (localStorage.getItem("lastSearchCity") !== null) {
-            lastSeached = localStorage.get("lastSearchedCity");
-            retrieveWeatherData(lastSearched);
-        }
+        // console.log(localStorage.getItem("lastSearchedCity"));
+        // if (localStorage.getItem("lastSearchedCity") !== null) {
+        //     var currentCity = localStorage.getItem("lastSearchedCity");
+        //retrieveWeatherData(null, currentCity);
     }
 
     function clearPage() {
