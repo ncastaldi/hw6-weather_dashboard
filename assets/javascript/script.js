@@ -191,7 +191,7 @@ $(document).ready(function () {
             citiesSearchedArray = citiesFromStorage;
 
             for (var i = 0; i < citiesSearchedArray.length; i++) {
-                var cityButton = $("<p>").addClass("").text(citiesSearchedArray[i]);
+                var cityButton = $("<p>").attr("data-listIndex", i).text(citiesSearchedArray[i]);
                 storedCitiesEl.append(cityButton);
             }
         }
