@@ -80,3 +80,9 @@ header {
 #fiveDayForecast {
     margin-top: 5%;
 }
+
+@media only screen and (max-width: 768px) {
+    .forecastDay {
+      margin: 0px auto 10px auto;
+    }
+  }
