@@ -35,7 +35,9 @@ $(document).ready(function () {
 
         if (localStorage.getItem("dynamicSearch") !== null) {
             currentCity = dynamicSearch;
+            localStorage.removeItem("dynamicSearch");
         } else {
+            console.log(cityInputEl[0].value);
             currentCity = cityInputEl[0].value;
             currentCity = capitalizeInput(currentCity);
         }
